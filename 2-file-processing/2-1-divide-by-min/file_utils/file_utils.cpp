@@ -25,13 +25,15 @@ namespace file_utils {
 
     void mutate(std::fstream& file) {
         std::vector<int> items(std::istream_iterator<int>{file}, std::istream_iterator<int>{});
-
+        if (items.empty()) {
+            return;
+        }
         file.clear();
         file.seekp(0, std::ios_base::beg);
-        int first = items.front();
-        int last = items.back();
+
+        int min = *std::min_element(items.begin(), items.end());
         for (int item: items) {
-            file << item * (first + last) << std::endl;
+            file << item / min << std::endl;
         }
     }
 
