@@ -43,7 +43,7 @@ int main() {
          << "2. Append new line to the end of the file \n"
          << "3. Read a number in the file using its ordering number \n"
          << "4. Count numbers in the file \n"
-         << "5. Multiply each number in the file by sum of the first the last item of it \n"
+         << "5. Divide by minimum \n"
          << "Select operation [1-5]: \n";
 
     int op;

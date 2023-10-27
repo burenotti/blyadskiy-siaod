@@ -5,9 +5,18 @@ project(2-file-processing)
 set(CMAKE_CXX_STANDARD 20)
 
 add_library(file_utils STATIC
-        2-1-divide-by-min/file_utils/file_utils.hpp
-        2-1-divide-by-min/file_utils/file_utils.cpp)
+        text-file/file_utils/file_utils.hpp
+        text-file/file_utils/file_utils.cpp)
 
-add_executable(2-1-divide-by-min 2-1-divide-by-min/main.cpp)
-target_include_directories(2-1-divide-by-min PRIVATE 2-1-divide-by-min/file_utils)
-target_link_libraries(2-1-divide-by-min PRIVATE file_utils)
+add_executable(text-file text-file/main.cpp)
+target_include_directories(text-file PRIVATE text-file/file_utils)
+target_link_libraries(text-file PRIVATE file_utils)
+
+
+add_library(binary_utils STATIC
+        binary-file/utils/utils.hpp
+        binary-file/utils/utils.cpp)
+
+add_executable(binary-file binary-file/main.cpp)
+target_include_directories(binary-file PRIVATE binary-file/utils)
+target_link_libraries(binary-file PRIVATE binary_utils)
